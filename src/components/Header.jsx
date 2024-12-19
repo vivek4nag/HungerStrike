@@ -11,7 +11,7 @@ const Header = () => {
 
     return (
         <div className="w-full bg-slate-900 h-16 fixed top-0 left-0 z-20 shadow-lg">
-            <div className="flex items-center px-2 sm:px-8 py-3 md:justify-between justify-around">
+            <div className="flex items-center px-2 sm:px-8 py-3 md:justify-around justify-between">
                 <Logo />
 
                 <div className="hidden lg:flex">
