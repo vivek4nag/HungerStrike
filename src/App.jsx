@@ -1,18 +1,30 @@
-import Header from './components/Header'
-import Top from './components/Top'
-import Middle from './components/Middle'
-import Bottom from './components/Bottom'
-import Footer from './components/Footer'
+
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Home from './components/Home'
+import QuotePage from './components/Quote/QuotePage'
+import RestaurantPage from './components/Restaurant/RestaurantPage'
 
 function App() {
 
+  const appRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home/>
+    },
+    {
+      path :"/Quote",
+      element: <QuotePage/>
+    },
+    {
+      path:"/Restaurant",
+      element: <RestaurantPage/>
+    }
+  ])
+
   return (
     <div className='select-none'>
-    <Header/>
-    <Top/>
-    <Middle/>
-    <Bottom/>
-    <Footer/>
+      <RouterProvider router={appRouter}/>
+    
     </div>
   )
 }

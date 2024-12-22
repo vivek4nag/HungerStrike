@@ -1,6 +1,7 @@
 import { useState } from "react";
 import hamburger from "../assets/hamburger.svg";
 import Logo from "./Logo";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
     const [isMenuOpen, setMenuOpen] = useState(false);
@@ -8,6 +9,8 @@ const Header = () => {
     const menuToggle = () => {
         setMenuOpen(!isMenuOpen);
     };
+    const activeStyle = "text-cyan-500  "
+    const inActiveStyle = "hover:text-yellow-300 cursor-pointer transition-all duration-300"
 
     return (
         <div className="w-full bg-slate-900 h-16 fixed top-0 left-0 z-20 shadow-lg">
@@ -16,15 +19,22 @@ const Header = () => {
 
                 <div className="hidden lg:flex">
                     <ul className="flex gap-6 items-center text-white text-lg">
-                        <li className="hover:text-yellow-300 cursor-pointer transition-all duration-300">
-                            Home
-                        </li>
-                        <li className="hover:text-yellow-300 cursor-pointer transition-all duration-300">
-                            Quote
-                        </li>
-                        <li className="hover:text-yellow-300 cursor-pointer transition-all duration-300">
-                            Restaurant
-                        </li>
+                        <NavLink to="/" className={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}>
+                            <li>
+                                Home
+                            </li>
+                        </NavLink>
+
+                        <NavLink to={`/Quote`} className={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}>
+                            <li >
+                                Quote
+                            </li>
+                        </NavLink>
+                        <NavLink to={`/Restaurant`} className={({ isActive }) => (isActive ? activeStyle : inActiveStyle)} >
+                            <li className="hover:text-yellow-300 cursor-pointer transition-all duration-300">
+                                Restaurant
+                            </li>
+                        </NavLink>
                         <li className="hover:text-yellow-300 cursor-pointer transition-all duration-300">
                             Food
                         </li>
@@ -49,28 +59,36 @@ const Header = () => {
             </div>
 
             {/* burger dikhane ya chupane ke liye */}
-            {isMenuOpen && (
-                <div className="md:hidden bg-slate-800 w-full h-auto rounded-xl">
-                    <ul className="flex flex-col gap-4 items-center text-white py-4">
-                        <li className="hover:text-yellow-300 cursor-pointer transition-all duration-300">
-                            Home
-                        </li>
-                        <li className="hover:text-yellow-300 cursor-pointer transition-all duration-300">
-                            Quote
-                        </li>
-                        <li className="hover:text-yellow-300 cursor-pointer transition-all duration-300">
-                            Restaurant
-                        </li>
-                        <li className="hover:text-yellow-300 cursor-pointer transition-all duration-300">
-                            Food
-                        </li>
-                        <li className="hover:text-yellow-300 cursor-pointer transition-all duration-300">
-                            Contact
-                        </li>
-                    </ul>
-                </div>
-            )}
-        </div>
+            {
+                isMenuOpen && (
+                    <div className="md:hidden bg-slate-800 w-full h-auto rounded-xl">
+                        <ul className="flex flex-col gap-4 items-center text-white py-4">
+                            <NavLink to={`/`} className={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}>
+                                <li className="hover:text-yellow-300 cursor-pointer transition-all duration-300">
+                                    Home
+                                </li>
+                            </NavLink>
+                            <NavLink to={`/Quote`} className={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}>
+                                <li className="hover:text-yellow-300 cursor-pointer transition-all duration-300">
+                                    Quote
+                                </li>
+                            </NavLink>
+                            <NavLink to={`/Restaurant`} className={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}>
+                                <li className="hover:text-yellow-300 cursor-pointer transition-all duration-300">
+                                    Restaurant
+                                </li>
+                            </NavLink>
+                            <li className="hover:text-yellow-300 cursor-pointer transition-all duration-300">
+                                Food
+                            </li>
+                            <li className="hover:text-yellow-300 cursor-pointer transition-all duration-300">
+                                Contact
+                            </li>
+                        </ul>
+                    </div>
+                )
+            }
+        </div >
     );
 };
 
