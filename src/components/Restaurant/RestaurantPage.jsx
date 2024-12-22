@@ -5,7 +5,7 @@ const RestaurantPage = () => {
   return (
     <>
         <Header/>
-        <div className=" h-[100vh] flex justify-center items-center bg-gray-200">
+        <div className=" h-[100vh] flex justify-center items-center bg-slate-100">
             <h1 className="text-center font-bold text-lg md:text-6xl">Ghar ka khana khaa le bhai aaj🫠 </h1>
         </div>
         <Footer/>
