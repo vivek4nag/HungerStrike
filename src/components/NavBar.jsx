@@ -3,7 +3,7 @@ import hamburger from "../assets/hamburger.svg";
 import Logo from "./Logo";
 import { NavLink } from "react-router-dom";
 
-const Header = () => {
+const NavBar = () => {
     const [isMenuOpen, setMenuOpen] = useState(false);
 
     const menuToggle = () => {
@@ -92,4 +92,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default NavBar;

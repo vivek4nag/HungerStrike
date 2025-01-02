@@ -1,13 +1,12 @@
-import Footer from "../Footer"
-import Header from "../Header"
+
 import QuoteSection from "./QuoteSection"
 
 const QuotePage = () => {
   return (
     <>
-    <Header/>
+    {/* <NavBar/> */}
     <QuoteSection/>
-    <Footer/>
+    {/* <Footer/> */}
     </>
   )
 }
